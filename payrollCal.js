@@ -39,6 +39,8 @@ parseFloat(hours);
 //wage
 wage = prompt("Employee's hourly wage:", ES);
 parseFloat(wage);
+//wage = wage.toFixed(2);
+
 //medical; must be sure this is treated as a number, and thus tried parseFloat.  This did not work on it's own, so added the numeric calculation to force this.
 medical = prompt("Employee's medical insurance deductible:", ES);
 parseFloat(medical);
@@ -57,13 +59,13 @@ net_pay = gross_pay - total;				//calculate net pay
 document.write("Employee Name:" + ES + first_name + ES + last_name  + LE + BR);
 document.write("Employee Wage:" + ES + D + wage + LE + BR);
 document.write("Hours worked:" + ES + hours + LE + BR);
-document.write("Gross Pay:" + ES + D + gross_pay + LE + BR);
-document.write("Federal Tax:" + ES + D + federal  + LE + BR);
-document.write("State Tax:" + ES + D + state + LE + BR);
-document.write("County Tax:" + ES + D + county + LE + BR);
-document.write("Medical Insurance Deductible:" + ES + D + medical + LE + BR);
-document.write("Total Withholding:" + ES + D + total + LE + BR);
-document.write("Net Pay:" + ES + D + net_pay + LE + BR + BR);
+document.write("Gross Pay:" + ES + D + gross_pay.toFixed(2) + LE + BR);
+document.write("Federal Tax:" + ES + D + federal.toFixed(2)  + LE + BR);
+document.write("State Tax:" + ES + D + state.toFixed(2) + LE + BR);
+document.write("County Tax:" + ES + D + county.toFixed(2) + LE + BR);
+document.write("Medical Insurance Deductible:" + ES + D + medical.toFixed(2) + LE + BR);
+document.write("Total Withholding:" + ES + D + total.toFixed(2) + LE + BR);
+document.write("Net Pay:" + ES + D + net_pay.toFixed(2) + LE + BR + BR);
 
 //thank the user and end the program
 document.write("Thanks for using the salary calculator!");
