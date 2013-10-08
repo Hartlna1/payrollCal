@@ -39,7 +39,7 @@ parseFloat(hours);
 //wage
 wage = prompt("Employee's hourly wage:", ES);
 parseFloat(wage);
-//wage = wage.toFixed(2);
+wage = ((wage * 1.1)/1.1);
 
 //medical; must be sure this is treated as a number, and thus tried parseFloat.  This did not work on it's own, so added the numeric calculation to force this.
 medical = prompt("Employee's medical insurance deductible:", ES);
@@ -57,7 +57,7 @@ net_pay = gross_pay - total;				//calculate net pay
 
 //required output
 document.write("Employee Name:" + ES + first_name + ES + last_name  + LE + BR);
-document.write("Employee Wage:" + ES + D + wage + LE + BR);
+document.write("Employee Wage:" + ES + D + wage.toFixed(2) + LE + BR);
 document.write("Hours worked:" + ES + hours + LE + BR);
 document.write("Gross Pay:" + ES + D + gross_pay.toFixed(2) + LE + BR);
 document.write("Federal Tax:" + ES + D + federal.toFixed(2)  + LE + BR);
