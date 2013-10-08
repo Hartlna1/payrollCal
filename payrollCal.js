@@ -24,25 +24,34 @@ var state = 0.0;				//calculated state tax
 var county = 0.0;				//calculated county tax
 var total = 0.0;				//calculated total withholding
 var net_pay = 0.0;				//calculated net pay
+var medical;					//medical insurance deductible
 
 //Program Heading
 document.write("Hello!  Welcome to the payroll calculator!" + BR + BR);
 
 //requesting input
+//name
 first_name = prompt("Please enter the employee's first name:", ES);
 last_name = prompt("Please enter the employee's last name:", ES);
+//hours
 hours = prompt("Number of hours worked:", ES);
 parseFloat(hours);
+//wage
 wage = prompt("Employee's hourly wage:", ES);
 parseFloat(wage);
+//medical; must be sure this is treated as a number, and thus tried parseFloat.  This did not work on it's own, so added the numeric calculation to force this.
+medical = prompt("Employee's medical insurance deductible:", ES);
+parseFloat(medical);
+medical = (medical * 1.1)/1.1; 
 
 //processing of input 
-gross_pay = hours * wage;
-federal = gross_pay * FED_RATE;
-state = gross_pay * STATE_RATE;
-county = gross_pay * COUNTY_RATE;
-total = state + federal + county;
-net_pay = gross_pay - total;
+gross_pay = hours * wage;					//calculates gross pay
+federal = gross_pay * FED_RATE;				//calculates federal withholding
+state = gross_pay * STATE_RATE;				//calculates state withholding
+county = gross_pay * COUNTY_RATE;			//calculates county withholding
+total_tax = state + federal + county;		//calculates total tax
+total = total_tax + medical;				//calculate total withholding
+net_pay = gross_pay - total;				//calculate net pay
 
 //required output
 document.write("Employee Name:" + ES + first_name + ES + last_name  + LE + BR);
@@ -52,6 +61,7 @@ document.write("Gross Pay:" + ES + D + gross_pay + LE + BR);
 document.write("Federal Tax:" + ES + D + federal  + LE + BR);
 document.write("State Tax:" + ES + D + state + LE + BR);
 document.write("County Tax:" + ES + D + county + LE + BR);
+document.write("Medical Insurance Deductible:" + ES + D + medical + LE + BR);
 document.write("Total Withholding:" + ES + D + total + LE + BR);
 document.write("Net Pay:" + ES + D + net_pay + LE + BR + BR);
 
